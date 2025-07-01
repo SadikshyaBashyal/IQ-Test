@@ -8,12 +8,6 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div style={{ paddingTop: '80px' }}>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/create-test" element={<CreateTest />} />
-        </Routes>
-      </div>
     </Router>
   )
 }
