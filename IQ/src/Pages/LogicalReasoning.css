@@ -1,0 +1,30 @@
+.logical-reasoning-page {
+    padding: 2rem;
+    text-align: center;
+}
+
+.show-questions-btn {
+    margin: 1rem 0;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background: #764ba2;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.show-questions-btn:hover {
+    background: #667eea;
+}
+
+.questions-list {
+    list-style: decimal inside;
+    margin: 1.5rem auto;
+    max-width: 500px;
+    text-align: left;
+    padding: 1rem;
+    background: #f4f4f4;
+    border-radius: 8px;
+} 

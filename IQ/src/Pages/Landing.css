@@ -1,5 +1,8 @@
 .landing-container {
     min-height: 100vh;
+    min-height: 100dvh;
+    width: 100vw;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,6 +10,15 @@
     background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
     text-align: center;
     padding: 2rem;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body, html, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .landing-3d {

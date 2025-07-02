@@ -31,9 +31,7 @@ function Landing() {
                     <OrbitControls enablePan={false} enableZoom={false} />
                 </Canvas>
             </div>
-            <h1>Welcome to IQ-Test</h1>
-            <p>Challenge your mind with our Maths and English IQ tests. Get started now!</p>
-            <a href="/create-test" className="landing-btn">Create Your Own IQ Test</a>
+
         </div>
     );
 }
