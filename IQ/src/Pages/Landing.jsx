@@ -1,39 +1,55 @@
 import React from 'react';
 import './Landing.css';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Float, Text3D, Center } from '@react-three/drei';
+import { Link } from 'react-router-dom';
 
-function SpinningCube() {
-    return (
-        <Float speed={2} rotationIntensity={1} floatIntensity={2}>
-            <mesh rotation={[0.4, 0.2, 0]} castShadow receiveShadow>
-                <boxGeometry args={[2, 2, 2]} />
-                <meshStandardMaterial color={'#764ba2'} metalness={0.6} roughness={0.3} />
-            </mesh>
-        </Float>
-    );
-}
+const Landing = () => {
+  const sections = [
+    { id: 'verbal', title: 'Verbal Reasoning', desc: 'Test your language comprehension and vocabulary skills', color: '#4a89dc', link: '/verbal-reasoning' },
+    { id: 'logical', title: 'Logical Reasoning', desc: 'Challenge your problem-solving and pattern recognition', color: '#e9573f', link: '/logical-reasoning' },
+    { id: 'memory', title: 'Memory', desc: 'Assess your working memory and recall abilities', color: '#3baeda', link: '/memory' },
+    { id: 'spatial', title: 'Spatial Reasoning', desc: 'Evaluate your visual and spatial manipulation skills', color: '#8cc152', link: '/spatial-reasoning' }
+  ];
 
-function Landing() {
-    return (
-        <div className="landing-container">
-            <div className="landing-3d">
-                <Canvas camera={{ position: [0, 0, 7], fov: 50 }} shadows>
-                    <ambientLight intensity={0.7} />
-                    <directionalLight position={[5, 5, 5]} intensity={1} castShadow />
-                    <SpinningCube />
-                    <Center position={[0, -2.5, 0]}>
-                        <Text3D font="/fonts/helvetiker_regular.typeface.json" size={0.7} height={0.2} curveSegments={12} bevelEnabled bevelSize={0.04} bevelThickness={0.04}>
-                            IQ-Test
-                            <meshStandardMaterial color="#667eea" />
-                        </Text3D>
-                    </Center>
-                    <OrbitControls enablePan={false} enableZoom={false} />
-                </Canvas>
+  return (
+    <div className="landing-page">
+      <main>
+        <div className="home-section">
+          <div className="hero">
+            <div className="hero-left">
+              <h1>Unlock Your <span>Cognitive Potential</span></h1>
+              <p>Take our scientifically designed IQ test to measure your intelligence across multiple dimensions</p>
             </div>
+            <div className="hero-right">
+              <Link to="/test" className="cta-button">Start Free Test</Link>
+            </div>
+          </div>
 
+          <div className="section-cards">
+            {sections.map((section, index) => (
+              <div 
+                key={section.id}
+                className="section-card"
+                style={{ '--card-color': section.color }}
+              >
+                <h3>{section.title}</h3>
+                <p>{section.desc}</p>
+                <Link 
+                  to={section.link}
+                  className="card-button"
+                  style={{ backgroundColor: section.color }}
+                >
+                  Try Sample Questions
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
-    );
-}
+      </main>
+      <footer>
+        <p>© 2023 IQMaster - Measure Your Cognitive Abilities</p>
+      </footer>
+    </div>
+  );
+};
 
 export default Landing;
