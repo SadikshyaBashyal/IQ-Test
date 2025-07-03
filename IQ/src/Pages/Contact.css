@@ -4,7 +4,7 @@
     padding: 4rem 0;
     background: linear-gradient(to right, #667eea, #764ba2);
     color: white;
-    width: 100vw;
+    width: 100%;
   }
   
   .contact-container {
@@ -388,7 +388,7 @@
   
   @media (max-width: 480px) {
     .contact-section {
-      padding: 2rem 0;
+      padding: 3rem 0;
     }
   
     .section-title {

@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import './LogicalReasoning.css';
 
-const questions = Array.from({ length: 20 }, (_, i) => `Logical Reasoning Question ${i + 1}`);
-
 function LogicalReasoning() {
-    const [showQuestions, setShowQuestions] = useState(false);
+    const [showFact, setShowFact] = useState(false);
     return (
         <div className="logical-reasoning-page">
             <h2>Logical Reasoning</h2>
-            <button onClick={() => setShowQuestions(true)} className="show-questions-btn">Show Questions</button>
-            {showQuestions && (
-                <ul className="questions-list">
-                    {questions.map((q, idx) => (
-                        <li key={idx}>{q}</li>
-                    ))}
-                </ul>
+            <p className="lr-desc">
+                Logical reasoning measures your ability to analyze and solve problems using logic and patterns. It is essential for decision-making, mathematics, and everyday problem-solving.
+            </p>
+            <button className="fact-toggle-btn" onClick={() => setShowFact(f => !f)}>
+                {showFact ? 'Hide Fun Fact' : 'Show Fun Fact'}
+            </button>
+            {showFact && (
+                <div className="lr-fun-fact">
+                    <strong>Did you know?</strong> Logical reasoning is used in computer science to create algorithms that power everything from search engines to self-driving cars!
+                </div>
             )}
         </div>
     );

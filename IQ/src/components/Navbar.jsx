@@ -17,7 +17,7 @@ function Navbar() {
         <nav className="navbar">
             <div className="navbar-container">
                 <div className="navbar-brand">
-                    <h1><Link to="/" className='title-link'>IQ-Test</Link></h1>
+                    <h1><Link to="/" className='title-link'>IQMaster</Link></h1>
                 </div>
                 <button
                     className={`menu-toggle${menuOpen ? ' open' : ''}`}

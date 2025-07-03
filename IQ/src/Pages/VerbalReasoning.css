@@ -1,6 +1,12 @@
 .verbal-reasoning-page {
     padding: 2rem;
     text-align: center;
+    max-width: 600px;
+    margin: 3rem auto;
+    background: #f5f7fa;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 24px rgba(74,137,220,0.08);
+    padding: 2.5rem 2rem;
 }
 
 .show-questions-btn {
@@ -27,4 +33,46 @@
     padding: 1rem;
     background: #f4f4f4;
     border-radius: 8px;
+}
+
+.vr-desc {
+    font-size: 1.15rem;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.fact-toggle-btn {
+    background: linear-gradient(90deg, #4a89dc 60%, #8cc152 100%);
+    color: #fff;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.8rem 2rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 1.2rem;
+    transition: filter 0.2s, transform 0.2s;
+    box-shadow: 0 2px 12px #4a89dc22;
+}
+
+.fact-toggle-btn:hover, .fact-toggle-btn:focus {
+    filter: brightness(1.08);
+    transform: scale(1.04);
+}
+
+.vr-fun-fact {
+    background: #e0e7ff;
+    color: #2c3e50;
+    border-radius: 1rem;
+    padding: 1.2rem 1rem;
+    margin-top: 0.5rem;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 8px #4a89dc11;
+    animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
 } 

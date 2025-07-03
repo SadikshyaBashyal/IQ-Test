@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import './Memory.css';
 
-const questions = Array.from({ length: 20 }, (_, i) => `Memory Question ${i + 1}`);
-
 function Memory() {
-    const [showQuestions, setShowQuestions] = useState(false);
+    const [showFact, setShowFact] = useState(false);
     return (
         <div className="memory-page">
             <h2>Memory</h2>
-            <button onClick={() => setShowQuestions(true)} className="show-questions-btn">Show Questions</button>
-            {showQuestions && (
-                <ul className="questions-list">
-                    {questions.map((q, idx) => (
-                        <li key={idx}>{q}</li>
-                    ))}
-                </ul>
+            <p className="memory-desc">
+                Memory is your ability to store, retain, and recall information. It plays a key role in learning, daily tasks, and forming new experiences.
+            </p>
+            <button className="fact-toggle-btn" onClick={() => setShowFact(f => !f)}>
+                {showFact ? 'Hide Fun Fact' : 'Show Fun Fact'}
+            </button>
+            {showFact && (
+                <div className="memory-fun-fact">
+                    <strong>Did you know?</strong> The human brain can store an estimated 2.5 petabytes of information—that's about a million gigabytes!
+                </div>
             )}
         </div>
     );
