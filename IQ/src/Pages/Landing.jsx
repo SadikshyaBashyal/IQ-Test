@@ -25,7 +25,7 @@ const Landing = () => {
           </div>
 
           <div className="section-cards">
-            {sections.map((section, index) => (
+            {sections.map((section) => (
               <div 
                 key={section.id}
                 className="section-card"
