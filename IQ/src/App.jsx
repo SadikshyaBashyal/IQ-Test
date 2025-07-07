@@ -6,6 +6,7 @@ import LogicalReasoning from './Pages/LogicalReasoning'
 import VerbalReasoning from './Pages/VerbalReasoning'
 import SpatialReasoning from './Pages/SpatialReasoning'
 import Memory from './Pages/Memory'
+import Text from './Pages/Text'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path = "/memory" element={<Memory />} />
         <Route path = "/spatial-reasoning" element={<SpatialReasoning />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/test" element={<Text />} />
       </Routes>
     </Router>
   )
