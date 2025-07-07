@@ -1,20 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { logicalQuestions } from '../components/Sample-test';
 import './LogicalReasoning.css';
-
-const sampleQuestions = [
-  {
-    question: 'If all roses are flowers and some flowers fade quickly, can we conclude that some roses fade quickly?',
-    answer: 'No, we cannot conclude that. While all roses are flowers, and some flowers fade quickly, it does not necessarily mean that any of the roses are among the flowers that fade quickly.'
-  },
-  {
-    question: 'Tom is older than Jim. Jim is older than Harry. Who is the oldest?',
-    answer: 'Tom is the oldest.'
-  },
-  {
-    question: 'If the first two statements are true, is the final statement true?\nAll cats are mammals. Some mammals are black. Therefore, some cats are black.',
-    answer: 'No, the conclusion does not necessarily follow. Some mammals being black does not mean any cats are black.'
-  }
-];
 
 function LogicalReasoning() {
     const [showFact, setShowFact] = useState(false);
@@ -23,14 +10,15 @@ function LogicalReasoning() {
 
     const handlePrev = () => {
       setShowAnswer(false);
-      setCurrent((prev) => (prev === 0 ? sampleQuestions.length - 1 : prev - 1));
+      setCurrent((prev) => (prev === 0 ? logicalQuestions.length - 1 : prev - 1));
     };
     const handleNext = () => {
       setShowAnswer(false);
-      setCurrent((prev) => (prev === sampleQuestions.length - 1 ? 0 : prev + 1));
+      setCurrent((prev) => (prev === logicalQuestions.length - 1 ? 0 : prev + 1));
     };
 
     return (
+      <>
         <div className="logical-reasoning-flex">
             <div className="logical-reasoning-left">
                 <h2>Logical Reasoning</h2>
@@ -53,7 +41,7 @@ function LogicalReasoning() {
                       <button className="arrow-btn" onClick={handlePrev} aria-label="Previous question">&#8592;</button>
                       <div className="lr-question">
                         <span className="question-text">
-                          {sampleQuestions[current].question}
+                          {logicalQuestions[current].question}
                         </span>
                       </div>
                       <button className="arrow-btn" onClick={handleNext} aria-label="Next question">&#8594;</button>
@@ -63,12 +51,16 @@ function LogicalReasoning() {
                     </button>
                     {showAnswer && (
                         <div className="lr-answer">
-                            <strong>Answer:</strong> <span>{sampleQuestions[current].answer}</span>
+                            <strong>Answer:</strong> <span>{logicalQuestions[current].answer}</span>
                         </div>
                     )}
                 </div>
             </div>
         </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem', marginBottom: '2.5rem' }}>
+          <Link to="/sample-test" className="cta-button">Logical Test</Link>
+        </div>
+      </>
     );
 }
 

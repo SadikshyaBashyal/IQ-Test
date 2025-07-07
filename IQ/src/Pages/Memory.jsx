@@ -1,20 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import {memoryQuestions} from '../components/Sample-test'
 import './Memory.css';
 
-const sampleQuestions = [
-  {
-    question: 'You are shown a list of 10 words. After 30 seconds, how many can you recall?',
-    answer: 'This tests your short-term memory. Most people recall 5-7 words.'
-  },
-  {
-    question: 'You see a sequence: 2, 4, 6, 8, __. What number comes next?',
-    answer: '10. This tests your ability to remember and continue a pattern.'
-  },
-  {
-    question: 'You are told a phone number: 555-1234. Can you repeat it backwards?',
-    answer: '4321-555. This tests your working memory.'
-  }
-];
 
 function Memory() {
     const [showFact, setShowFact] = useState(false);
@@ -23,14 +11,15 @@ function Memory() {
 
     const handlePrev = () => {
       setShowAnswer(false);
-      setCurrent((prev) => (prev === 0 ? sampleQuestions.length - 1 : prev - 1));
+      setCurrent((prev) => (prev === 0 ? memoryQuestions.length - 1 : prev - 1));
     };
     const handleNext = () => {
       setShowAnswer(false);
-      setCurrent((prev) => (prev === sampleQuestions.length - 1 ? 0 : prev + 1));
+      setCurrent((prev) => (prev === memoryQuestions.length - 1 ? 0 : prev + 1));
     };
 
     return (
+      <>
         <div className="memory-flex">
             <div className="memory-left">
                 <h2>Memory</h2>
@@ -53,7 +42,7 @@ function Memory() {
                       <button className="arrow-btn" onClick={handlePrev} aria-label="Previous question">&#8592;</button>
                       <div className="memory-question">
                         <span className="question-text">
-                          {sampleQuestions[current].question}
+                          {memoryQuestions[current].question}
                         </span>
                       </div>
                       <button className="arrow-btn" onClick={handleNext} aria-label="Next question">&#8594;</button>
@@ -63,12 +52,16 @@ function Memory() {
                     </button>
                     {showAnswer && (
                         <div className="memory-answer">
-                            <strong>Answer:</strong> <span>{sampleQuestions[current].answer}</span>
+                            <strong>Answer:</strong> <span>{memoryQuestions[current].answer}</span>
                         </div>
                     )}
                 </div>
             </div>
         </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem', marginBottom: '2.5rem' }}>
+          <Link to="/sample-test" className="cta-button">Memory Test</Link>
+        </div>
+      </>  
     );
 }
 

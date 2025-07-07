@@ -1,20 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { spatialQuestions } from '../components/Sample-test';
 import './SpatialReasoning.css';
 
-const sampleQuestions = [
-  {
-    question: 'Which shape comes next in the sequence: ◼ ◻ ◼ ◻ ?',
-    answer: '◼. The pattern alternates between filled and empty squares.'
-  },
-  {
-    question: 'If you rotate an "L" shape 90 degrees clockwise, what does it look like?',
-    answer: 'It looks like a rotated "L" facing down.'
-  },
-  {
-    question: 'Which object does not belong: Cube, Sphere, Pyramid, Circle?',
-    answer: 'Circle. All others are 3D shapes; a circle is 2D.'
-  }
-];
 
 function SpatialReasoning() {
     const [showFact, setShowFact] = useState(false);
@@ -23,14 +11,15 @@ function SpatialReasoning() {
 
     const handlePrev = () => {
       setShowAnswer(false);
-      setCurrent((prev) => (prev === 0 ? sampleQuestions.length - 1 : prev - 1));
+      setCurrent((prev) => (prev === 0 ? spatialQuestions.length - 1 : prev - 1));
     };
     const handleNext = () => {
       setShowAnswer(false);
-      setCurrent((prev) => (prev === sampleQuestions.length - 1 ? 0 : prev + 1));
+      setCurrent((prev) => (prev === spatialQuestions.length - 1 ? 0 : prev + 1));
     };
 
     return (
+      <>
         <div className="spatial-reasoning-flex">
             <div className="spatial-reasoning-left">
                 <h2>Spatial Reasoning</h2>
@@ -53,7 +42,7 @@ function SpatialReasoning() {
                       <button className="arrow-btn" onClick={handlePrev} aria-label="Previous question">&#8592;</button>
                       <div className="sr-question">
                         <span className="question-text">
-                          {sampleQuestions[current].question}
+                          {spatialQuestions[current].question}
                         </span>
                       </div>
                       <button className="arrow-btn" onClick={handleNext} aria-label="Next question">&#8594;</button>
@@ -63,12 +52,16 @@ function SpatialReasoning() {
                     </button>
                     {showAnswer && (
                         <div className="sr-answer">
-                            <strong>Answer:</strong> <span>{sampleQuestions[current].answer}</span>
+                            <strong>Answer:</strong> <span>{spatialQuestions[current].answer}</span>
                         </div>
                     )}
                 </div>
             </div>
         </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem', marginBottom: '2.5rem' }}>
+          <Link to="/sample-test" className="cta-button">Spatial Test</Link>
+        </div>
+      </>
     );
 }
 

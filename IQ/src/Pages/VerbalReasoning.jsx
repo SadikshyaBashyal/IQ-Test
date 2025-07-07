@@ -1,20 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './VerbalReasoning.css';
-
-const sampleQuestions = [
-  {
-    question: 'Which word is most similar in meaning to "benevolent"? (A) Kind (B) Angry (C) Tired (D) Sad',
-    answer: 'A) Kind'
-  },
-  {
-    question: 'Choose the correctly spelled word: (A) Recieve (B) Receive (C) Recive (D) Receeve',
-    answer: 'B) Receive'
-  },
-  {
-    question: 'Fill in the blank: She _____ to the store before it started raining. (A) go (B) gone (C) went (D) going',
-    answer: 'C) went'
-  }
-];
+import { verbalQuestions } from '../components/Sample-test';
 
 function VerbalReasoning() {
     const [showFact, setShowFact] = useState(false);
@@ -23,14 +10,15 @@ function VerbalReasoning() {
 
     const handlePrev = () => {
       setShowAnswer(false);
-      setCurrent((prev) => (prev === 0 ? sampleQuestions.length - 1 : prev - 1));
+      setCurrent((prev) => (prev === 0 ? verbalQuestions.length - 1 : prev - 1));
     };
     const handleNext = () => {
       setShowAnswer(false);
-      setCurrent((prev) => (prev === sampleQuestions.length - 1 ? 0 : prev + 1));
+      setCurrent((prev) => (prev === verbalQuestions.length - 1 ? 0 : prev + 1));
     };
 
     return (
+      <>
         <div className="verbal-reasoning-flex">
             <div className="verbal-reasoning-left">
                 <h2>Verbal Reasoning</h2>
@@ -53,7 +41,7 @@ function VerbalReasoning() {
                       <button className="arrow-btn" onClick={handlePrev} aria-label="Previous question">&#8592;</button>
                       <div className="vr-question">
                         <span className="question-text">
-                          {sampleQuestions[current].question}
+                          {verbalQuestions[current].question}
                         </span>
                       </div>
                       <button className="arrow-btn" onClick={handleNext} aria-label="Next question">&#8594;</button>
@@ -63,12 +51,16 @@ function VerbalReasoning() {
                     </button>
                     {showAnswer && (
                         <div className="vr-answer">
-                            <strong>Answer:</strong> <span>{sampleQuestions[current].answer}</span>
+                            <strong>Answer:</strong> <span>{verbalQuestions[current].answer}</span>
                         </div>
                     )}
                 </div>
             </div>
         </div>
+        <div style={{ display: 'flex', justifyContent: 'center', marginTop: '2.5rem', marginBottom: '2.5rem' }}>
+          <Link to="/sample-test" className="cta-button">Verbal Test</Link>
+        </div>
+      </>
     );
 }
 

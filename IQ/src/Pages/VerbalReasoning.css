@@ -200,6 +200,14 @@
   box-shadow: 0 1px 6px #4a89dc0a;
   animation: fadeIn 0.4s;
 }
+
+.sample-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 @media (max-width: 900px) {
   .verbal-reasoning-flex {
     flex-direction: column;
