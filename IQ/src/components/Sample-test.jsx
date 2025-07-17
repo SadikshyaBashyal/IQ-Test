@@ -280,71 +280,226 @@ export const allQuestions = [
     {
       id: 31,
       category: 'memory',
-      question: 'You are shown a list of 10 words. After 30 seconds, how many can you recall?',
+      memorize: 'You are shown a list of 10 words.',
+      question: 'After 30 seconds, how many can you recall?',
       options: ['2-3 words', '5-7 words', '8-10 words', 'All 10 words'],
       correctAnswer: 1
     },
     {
       id: 32,
       category: 'memory',
-      question: 'You see a sequence: 2, 4, 6, 8, __. What number comes next?',
+      memorize: 'You see a sequence: 2, 4, 6, 8.',
+      question: 'What number comes next?',
       options: ['9', '10', '11', '12'],
       correctAnswer: 1
     },
     {
       id: 33,
       category: 'memory',
-      question: 'You are told a phone number: 555-1234. Can you repeat it backwards?',
+      memorize: 'You are told a phone number: 555-1234.',
+      question: 'Can you repeat it backwards?',
       options: ['4321-555', '555-4321', '1234-555', '555-1234'],
       correctAnswer: 0
     },
     {
       id: 34,
       category: 'memory',
-      question: 'Remember this sequence: Red, Blue, Green, Yellow. What was the second color?',
+      memorize: 'Remember this sequence: Red, Blue, Green, Yellow.',
+      question: 'What was the second color?',
       options: ['Red', 'Blue', 'Green', 'Yellow'],
       correctAnswer: 1
     },
     {
       id: 35,
       category: 'memory',
-      question: 'You see: Apple, Banana, Cherry, Date. Which fruit was third?',
+      memorize: 'You see: Apple, Banana, Cherry, Date.',
+      question: 'Which fruit was third?',
       options: ['Apple', 'Banana', 'Cherry', 'Date'],
       correctAnswer: 2
     },
     {
       id: 36,
       category: 'memory',
-      question: 'Remember: 7, 3, 9, 1, 5. What was the middle number?',
+      memorize: 'Remember: 7, 3, 9, 1, 5.',
+      question: 'What was the middle number?',
       options: ['3', '7', '9', '1'],
       correctAnswer: 2
     },
     {
       id: 37,
       category: 'memory',
-      question: 'You hear: Monday, Tuesday, Wednesday. What day was mentioned first?',
+      memorize: 'You hear: Monday, Tuesday, Wednesday.',
+      question: 'What day was mentioned first?',
       options: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
       correctAnswer: 0
     },
     {
       id: 38,
       category: 'memory',
-      question: 'Remember this pattern: ⭐ ⭐⭐ ⭐⭐⭐. How many stars were in the second group?',
+      memorize: 'Remember this pattern: ⭐ ⭐⭐ ⭐⭐⭐.',
+      question: 'How many stars were in the second group?',
       options: ['1', '2', '3', '4'],
       correctAnswer: 1
     },
     {
       id: 39,
       category: 'memory',
-      question: 'You see: Cat, Dog, Bird, Fish. Which animal was last?',
+      memorize: 'You see: Cat, Dog, Bird, Fish.',
+      question: 'Which animal was last?',
       options: ['Cat', 'Dog', 'Bird', 'Fish'],
       correctAnswer: 3
     },
     {
       id: 40,
       category: 'memory',
-      question: 'Remember: 2, 8, 4, 6. What was the highest number?',
+      memorize: 'Remember: 2, 8, 4, 6.',
+      question: 'What was the highest number?',
       options: ['2', '4', '6', '8'],
       correctAnswer: 3
     }
+];
+
+// Update memory questions in allQuestions (id 31-40) to use memorize/question split
+allQuestions[30].memorize = 'You are shown a list of 10 words.';
+allQuestions[30].question = 'After 30 seconds, how many can you recall?';
+allQuestions[31].memorize = 'You see a sequence: 2, 4, 6, 8.';
+allQuestions[31].question = 'What number comes next?';
+allQuestions[32].memorize = 'You are told a phone number: 555-1234.';
+allQuestions[32].question = 'Can you repeat it backwards?';
+allQuestions[33].memorize = 'Remember this sequence: Red, Blue, Green, Yellow.';
+allQuestions[33].question = 'What was the second color?';
+allQuestions[34].memorize = 'You see: Apple, Banana, Cherry, Date.';
+allQuestions[34].question = 'Which fruit was third?';
+allQuestions[35].memorize = 'Remember: 7, 3, 9, 1, 5.';
+allQuestions[35].question = 'What was the middle number?';
+allQuestions[36].memorize = 'You hear: Monday, Tuesday, Wednesday.';
+allQuestions[36].question = 'What day was mentioned first?';
+allQuestions[37].memorize = 'Remember this pattern: ⭐ ⭐⭐ ⭐⭐⭐.';
+allQuestions[37].question = 'How many stars were in the second group?';
+allQuestions[38].memorize = 'You see: Cat, Dog, Bird, Fish.';
+allQuestions[38].question = 'Which animal was last?';
+allQuestions[39].memorize = 'Remember: 2, 8, 4, 6.';
+allQuestions[39].question = 'What was the highest number?';
+
+// 10 new, unique sample questions for each category (not filtered from allQuestions)
+export const logicalSample = [
+  { id: 1, category: 'logical', question: 'If 2 pencils cost 8 cents, how much do 5 pencils cost?', options: ['20 cents', '18 cents', '16 cents', '10 cents'], correctAnswer: 2 },
+  { id: 2, category: 'logical', question: 'Which number logically follows this series: 4, 6, 9, 6, 14, 6, ...?', options: ['6', '17', '19', '21'], correctAnswer: 1 },
+  { id: 3, category: 'logical', question: 'If all squares are rectangles, and all rectangles are polygons, are all squares polygons?', options: ['Yes', 'No', 'Only some', 'Cannot say'], correctAnswer: 0 },
+  { id: 4, category: 'logical', question: 'Which is the odd one out: Dog, Cat, Lion, Snake?', options: ['Dog', 'Cat', 'Lion', 'Snake'], correctAnswer: 3 },
+  { id: 5, category: 'logical', question: 'If 5x = 20, what is x?', options: ['2', '3', '4', '5'], correctAnswer: 2 },
+  { id: 6, category: 'logical', question: 'Which comes next: 2, 4, 8, 16, ...?', options: ['18', '24', '32', '36'], correctAnswer: 2 },
+  { id: 7, category: 'logical', question: 'If John is taller than Peter and Peter is taller than Sam, who is the shortest?', options: ['John', 'Peter', 'Sam', 'Cannot say'], correctAnswer: 2 },
+  { id: 8, category: 'logical', question: 'Which shape has the most sides: Triangle, Square, Pentagon, Octagon?', options: ['Triangle', 'Square', 'Pentagon', 'Octagon'], correctAnswer: 3 },
+  { id: 9, category: 'logical', question: 'If 3 birds are on a branch and you shoot one, how many are left?', options: ['2', '3', '0', '1'], correctAnswer: 2 },
+  { id: 10, category: 'logical', question: 'Which is the next in the sequence: 1, 1, 2, 3, 5, 8, ...?', options: ['11', '12', '13', '15'], correctAnswer: 2 },
+];
+
+export const verbalSample = [
+  { id: 1, category: 'verbal', question: 'Which word is a synonym for "happy"?', options: ['Sad', 'Joyful', 'Angry', 'Tired'], correctAnswer: 1 },
+  { id: 2, category: 'verbal', question: 'Choose the correctly spelled word:', options: ['Definately', 'Definitely', 'Definetly', 'Definitley'], correctAnswer: 1 },
+  { id: 3, category: 'verbal', question: 'What is the antonym of "ancient"?', options: ['Old', 'Modern', 'Historic', 'Antique'], correctAnswer: 1 },
+  { id: 4, category: 'verbal', question: 'Fill in the blank: The sun _____ in the east.', options: ['sets', 'rises', 'shines', 'falls'], correctAnswer: 1 },
+  { id: 5, category: 'verbal', question: 'Which word is a noun?', options: ['Run', 'Blue', 'Happiness', 'Quickly'], correctAnswer: 2 },
+  { id: 6, category: 'verbal', question: 'Which sentence is correct?', options: ['He go to school.', 'He goes to school.', 'He going to school.', 'He gone to school.'], correctAnswer: 1 },
+  { id: 7, category: 'verbal', question: 'What does "benevolent" mean?', options: ['Kind', 'Angry', 'Tired', 'Sad'], correctAnswer: 0 },
+  { id: 8, category: 'verbal', question: 'Which word is an antonym for "difficult"?', options: ['Easy', 'Hard', 'Tough', 'Complicated'], correctAnswer: 0 },
+  { id: 9, category: 'verbal', question: 'Choose the word that best completes: The weather was so _____ that we went swimming.', options: ['cold', 'hot', 'rainy', 'windy'], correctAnswer: 1 },
+  { id: 10, category: 'verbal', question: 'Which word is a verb?', options: ['Quick', 'Run', 'Blue', 'Happiness'], correctAnswer: 1 },
+];
+
+export const spatialSample = [
+  { id: 1, category: 'spatial', question: 'Which shape comes next: ◼ ◻ ◼ ◻ ?', options: ['◼', '◻', '◼◻', '◻◼'], correctAnswer: 0 },
+  { id: 2, category: 'spatial', question: 'If you rotate a square 90 degrees, what shape do you get?', options: ['Circle', 'Square', 'Triangle', 'Rectangle'], correctAnswer: 1 },
+  { id: 3, category: 'spatial', question: 'Which object does not belong: Cube, Sphere, Pyramid, Circle?', options: ['Cube', 'Sphere', 'Pyramid', 'Circle'], correctAnswer: 3 },
+  { id: 4, category: 'spatial', question: 'How many faces does a cube have?', options: ['4', '6', '8', '12'], correctAnswer: 1 },
+  { id: 5, category: 'spatial', question: 'Which direction is opposite to North-East?', options: ['South-East', 'South-West', 'North-West', 'South-West'], correctAnswer: 1 },
+  { id: 6, category: 'spatial', question: 'How many edges does a cube have?', options: ['8', '10', '12', '14'], correctAnswer: 2 },
+  { id: 7, category: 'spatial', question: 'Which shape can be made by combining two triangles?', options: ['Square', 'Rectangle', 'Parallelogram', 'All of the above'], correctAnswer: 3 },
+  { id: 8, category: 'spatial', question: 'If you look at a clock and it shows 6:00, what angle do the hands make?', options: ['90 degrees', '180 degrees', '120 degrees', '60 degrees'], correctAnswer: 1 },
+  { id: 9, category: 'spatial', question: 'Which shape has the most sides: Triangle, Square, Pentagon, Hexagon?', options: ['Triangle', 'Square', 'Pentagon', 'Hexagon'], correctAnswer: 3 },
+  { id: 10, category: 'spatial', question: 'If you fold a paper in half twice, how many layers do you get?', options: ['2', '3', '4', '6'], correctAnswer: 2 },
+];
+
+export const memorySample = [
+  {
+    id: 1,
+    category: 'memory',
+    memorize: 'Ant, Fat, Cat, Mat, Bat, Rat, Pat',
+    question: 'How many of these are animals?',
+    options: ['2', '3', '4', '5'],
+    correctAnswer: 2
+  },
+  {
+    id: 2,
+    category: 'memory',
+    memorize: 'You see a sequence: 2, 4, 6, 8.',
+    question: 'What number comes next?',
+    options: ['9', '10', '11', '12'],
+    correctAnswer: 1
+  },
+  {
+    id: 3,
+    category: 'memory',
+    memorize: 'You are told a phone number: 555-1234.',
+    question: 'Can you repeat it backwards?',
+    options: ['4321-555', '555-4321', '1234-555', '555-1234'],
+    correctAnswer: 0
+  },
+  {
+    id: 4,
+    category: 'memory',
+    memorize: 'Remember this sequence: Red, Blue, Green, Yellow.',
+    question: 'What was the second color?',
+    options: ['Red', 'Blue', 'Green', 'Yellow'],
+    correctAnswer: 1
+  },
+  {
+    id: 5,
+    category: 'memory',
+    memorize: 'You see: Apple, Banana, Cherry, Date.',
+    question: 'Which fruit was third?',
+    options: ['Apple', 'Banana', 'Cherry', 'Date'],
+    correctAnswer: 2
+  },
+  {
+    id: 6,
+    category: 'memory',
+    memorize: 'Remember: 7, 3, 9, 1, 5.',
+    question: 'What was the middle number?',
+    options: ['3', '7', '9', '1'],
+    correctAnswer: 2
+  },
+  {
+    id: 7,
+    category: 'memory',
+    memorize: 'You hear: Monday, Tuesday, Wednesday.',
+    question: 'What day was mentioned first?',
+    options: ['Monday', 'Tuesday', 'Wednesday', 'Thursday'],
+    correctAnswer: 0
+  },
+  {
+    id: 8,
+    category: 'memory',
+    memorize: 'Remember this pattern: ⭐ ⭐⭐ ⭐⭐⭐.',
+    question: 'How many stars were in the second group?',
+    options: ['1', '2', '3', '4'],
+    correctAnswer: 1
+  },
+  {
+    id: 9,
+    category: 'memory',
+    memorize: 'You see: Cat, Dog, Bird, Fish.',
+    question: 'Which animal was last?',
+    options: ['Cat', 'Dog', 'Bird', 'Fish'],
+    correctAnswer: 3
+  },
+  {
+    id: 10,
+    category: 'memory',
+    memorize: 'Remember: 2, 8, 4, 6.',
+    question: 'What was the highest number?',
+    options: ['18', '6', '16', '8'],
+    correctAnswer: 3
+  },
 ];
