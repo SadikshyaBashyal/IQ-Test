@@ -7,7 +7,7 @@ const Text = () => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [testStarted, setTestStarted] = useState(false);
   const [testCompleted, setTestCompleted] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(3600); // 60 minutes
+  const [timeLeft, setTimeLeft] = useState(1200); // 20 minutes
   const [score, setScore] = useState(0);
   // Memory question timer state
   const [showMemoryOptions, setShowMemoryOptions] = useState(false);
@@ -54,7 +54,7 @@ const Text = () => {
 
   const handleStartTest = () => {
     setTestStarted(true);
-    setTimeLeft(3600); // Reset timer
+    setTimeLeft(1200); // Reset timer
   };
 
   const handleAnswerSelect = (answerIndex) => {
@@ -117,7 +117,7 @@ const Text = () => {
             <li>Spatial Reasoning (10 questions)</li>
             <li>Memory (10 questions)</li>
           </ul>
-          <p><strong>Time Limit:</strong> 60 minutes</p>
+          <p><strong>Time Limit:</strong> 20 minutes</p>
           <p><strong>Instructions:</strong> Read each question carefully and select the best answer. You can navigate between questions and change your answers before submitting.</p>
         </div>
         <div className='test-start'>
