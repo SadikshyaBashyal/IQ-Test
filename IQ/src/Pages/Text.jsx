@@ -9,6 +9,9 @@ const Text = () => {
   const [testCompleted, setTestCompleted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(3600); // 60 minutes
   const [score, setScore] = useState(0);
+  // Memory question timer state
+  const [showMemoryOptions, setShowMemoryOptions] = useState(false);
+  const [memoryTimer, setMemoryTimer] = useState(10);
 
   useEffect(() => {
     let timer;
@@ -25,6 +28,29 @@ const Text = () => {
     }
     return () => clearInterval(timer);
   }, [testStarted, testCompleted, timeLeft]);
+
+  // Memory question timer logic
+  useEffect(() => {
+    const currentQ = allQuestions[currentQuestion];
+    if (testStarted && currentQ.category === 'memory') {
+      setShowMemoryOptions(false);
+      setMemoryTimer(10);
+    }
+    // eslint-disable-next-line
+  }, [currentQuestion, testStarted]);
+
+  useEffect(() => {
+    const currentQ = allQuestions[currentQuestion];
+    let timer;
+    if (testStarted && currentQ.category === 'memory' && !showMemoryOptions) {
+      if (memoryTimer > 0) {
+        timer = setTimeout(() => setMemoryTimer(memoryTimer - 1), 1000);
+      } else {
+        setShowMemoryOptions(true);
+      }
+    }
+    return () => clearTimeout(timer);
+  }, [memoryTimer, testStarted, currentQuestion, showMemoryOptions]);
 
   const handleStartTest = () => {
     setTestStarted(true);
@@ -126,6 +152,7 @@ const Text = () => {
   }
 
   const currentQ = allQuestions[currentQuestion];
+  const isMemory = currentQ.category === 'memory';
   const categoryColors = {
     logical: '#ff6b6b',
     verbal: '#4ecdc4',
@@ -149,19 +176,48 @@ const Text = () => {
 
       <div className="question-container">
         <div className="question-text">
-          <h3>{currentQ.question}</h3>
+          {isMemory ? (
+            showMemoryOptions
+              ? null
+              : currentQ.memorize
+                ? <h3>{currentQ.memorize}</h3>
+                : <h3>{currentQ.question}</h3>
+          ) : (
+            <h3>{currentQ.question}</h3>
+          )}
         </div>
-        
         <div className="options-container">
-          {currentQ.options.map((option, index) => (
-            <button
-              key={index}
-              className={`option-btn ${selectedAnswers[currentQuestion] === index ? 'selected' : ''}`}
-              onClick={() => handleAnswerSelect(index)}
-            >
-              {String.fromCharCode(65 + index)}) {option}
-            </button>
-          ))}
+          {isMemory ? (
+            showMemoryOptions ? (
+              <>
+                {currentQ.memorize && <div style={{ marginBottom: '1rem', fontWeight: 500 }}>{currentQ.question}</div>}
+                {currentQ.options.map((option, index) => (
+                  <button
+                    key={index}
+                    className={`option-btn ${selectedAnswers[currentQuestion] === index ? 'selected' : ''}`}
+                    onClick={() => handleAnswerSelect(index)}
+                  >
+                    {String.fromCharCode(65 + index)}) {option}
+                  </button>
+                ))}
+              </>
+            ) : (
+              <div style={{ fontSize: '1.2rem', color: '#667eea', textAlign: 'center', margin: '2rem 0' }}>
+                <strong>Memorize the question...</strong>
+                <div style={{ marginTop: '1rem', fontSize: '2rem' }}>{memoryTimer}s</div>
+              </div>
+            )
+          ) : (
+            currentQ.options.map((option, index) => (
+              <button
+                key={index}
+                className={`option-btn ${selectedAnswers[currentQuestion] === index ? 'selected' : ''}`}
+                onClick={() => handleAnswerSelect(index)}
+              >
+                {String.fromCharCode(65 + index)}) {option}
+              </button>
+            ))
+          )}
         </div>
       </div>
 

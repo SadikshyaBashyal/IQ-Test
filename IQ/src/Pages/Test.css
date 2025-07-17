@@ -1,8 +1,11 @@
 .test-page {
     min-height: 100vh;
-    padding: 20px;
+    padding: 80px 20px 20px 20px; /* Add top padding for navbar */
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     font-family: 'Arial', sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .test-description {
@@ -315,5 +318,21 @@
     .test-description h2,
     .test-results h2 {
         font-size: 2rem;
+    }
+}
+
+.test-description,
+.question-container,
+.test-header,
+.test-navigation,
+.test-results {
+    border-radius: 22px; /* More modern rounded corners */
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18); /* Deeper shadow for pop effect */
+}
+
+@media (max-width: 1000px) {
+    .test-page {
+        max-width: 100%;
+        padding: 80px 5vw 20px 5vw;
     }
 }
