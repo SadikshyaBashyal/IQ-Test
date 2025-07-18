@@ -46,7 +46,7 @@ const Landing = () => {
         </div>
       </main>
       <footer>
-        <p>© 2023 IQMaster - Measure Your Cognitive Abilities</p>
+        <p>© 2025 IQMaster - Measure Your Cognitive Abilities</p>
       </footer>
     </div>
   );

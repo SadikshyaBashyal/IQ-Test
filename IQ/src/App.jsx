@@ -8,9 +8,10 @@ import SpatialReasoning from './Pages/SpatialReasoning'
 import Memory from './Pages/Memory'
 import Text from './Pages/Text'
 import SampleTest from './Pages/SampleTest';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
+  // const basename = import.meta.env.MODE === 'production' ? '/IQ-Test' : '/';
   return (
     <Router>
       <Navbar />
