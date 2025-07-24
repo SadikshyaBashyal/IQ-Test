@@ -88,7 +88,7 @@ export const allQuestions = [
       id: 4,
       category: 'logical',
       question: 'Complete the sequence: 1, 8, 27, 64, 125, ____',
-      options: ['200, 215, 201, 216'],
+      options: ['200', '215', '201', '216'],
       correctAnswer: 3
     },
     {

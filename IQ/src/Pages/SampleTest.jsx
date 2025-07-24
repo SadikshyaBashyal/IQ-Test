@@ -88,7 +88,7 @@ const SampleTest = () => {
               <option key={cat.value} value={cat.value}>{cat.label}</option>
             ))}
           </select>
-          <div style={{ marginTop: '2rem' }}>
+          <div style={{ marginTop: '7rem' }}>
             <button onClick={handleStart} className="submit-btn">Start Sample Test</button>
           </div>
         </div>

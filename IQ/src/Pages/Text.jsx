@@ -105,6 +105,15 @@ const Text = () => {
     return stats;
   };
 
+  const hasPendingQuestionsBehind = () => {
+    for (let i = 0; i < currentQuestion; i++) {
+      if (selectedAnswers[i] === undefined) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   if (!testStarted) {
     return (
       <div className="test-page">
@@ -219,6 +228,11 @@ const Text = () => {
             ))
           )}
         </div>
+        {hasPendingQuestionsBehind() && (
+          <div className="pending-questions-notify">
+            You have pending questions to solve.
+          </div>
+        )}
       </div>
 
       <div className="test-navigation">
